@@ -12,7 +12,7 @@
 @implementation FTCSprite
 
 @synthesize name;
-@synthesize ignorePosition, ignoreRotation, ignoreScale;
+@synthesize ignorePosition, ignoreRotation, ignoreScale, ignoreAlpha;
 @synthesize animationsArr;
 
 
@@ -55,6 +55,12 @@
         if (_frameInfo.scaleX!=0)   [self setScaleX:_frameInfo.scaleX];
         if (_frameInfo.scaleY!=0)   [self setScaleY:_frameInfo.scaleY];
     }
+    
+    if (!ignoreAlpha) {
+        [self setOpacity:_frameInfo.alpha * 255];
+    }
+    
+    
 }
 
 
